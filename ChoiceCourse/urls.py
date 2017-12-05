@@ -3,11 +3,12 @@ from django.contrib import admin
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 
-from course.views import CourseViewSet
+from course.views import CourseViewSet, EnrollmentViewSet
 
 router = DefaultRouter()
 
 router.register(prefix="course", viewset=CourseViewSet, base_name="course")
+router.register(prefix="enrollment", viewset=EnrollmentViewSet, base_name="enrollment")
 
 urlpatterns = [
     url(r'^', include(router.urls)),
