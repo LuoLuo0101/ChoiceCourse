@@ -2,7 +2,7 @@
 __author__ = 'Luo'
 
 from rest_framework import serializers
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, Serializer
 
 from course.models import Course, Teacher, Student, Enrollment
 
@@ -51,3 +51,13 @@ class EnrollmentSerializer(ModelSerializer):
     class Meta:
         model = Enrollment
         fields = "__all__"
+
+
+class EnrollStudentSerializer(ModelSerializer):
+    student = StudentSerializer(many=False)
+    course = CourseSerializer(many=False)
+
+    class Meta:
+        model = Enrollment
+        fields = "__all__"
+

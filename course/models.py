@@ -44,6 +44,7 @@ class Enrollment(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = "选课表"
+        unique_together = ("student", "course")
 
     def __str__(self):
         return "选课表"
